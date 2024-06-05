@@ -14,19 +14,19 @@ Ayrıca, responsive bir tasarımı desteklemek için tasarlanmıştır.
 - Moment.js: Tarih ve saat işlemleri için kullanılan JavaScript kütüphanesi.
 - React Hooks: State ve lifecycle özelliklerini, class componentlerine ihtiyaç duymadan kullanmayı sağlayan React özelliği.
 - React Router DOM: React uygulamalarında navigasyon ve URL yönlendirme için kullanılan bir kütüphane.
+  
 
 ## Kurulum
-
+```
+1. Bu projeyi klonlayın:
 [git clone https://github.com/kullanici/YouTube-Clone.git](https://github.com/wlanHan/youtube-c.git)
 
 2. Proje dizinine gidin:
-
 cd YouTube-Clone
 
 3. Gerekli bağımlılıkları yükleyin:
-
 npm install
 
 4. Uygulamayı başlatın:
-
 npm start
+```

@@ -15,6 +15,7 @@ const PlayVideo = ({ videoId }) => {
 
     const [apiData, setApiData] = useState(null);
     const [channelData, setChannelData] = useState(null)
+    const [commentData, setCommentData] = useState([])
 
     const fetchVideoData = async () => {
         //Fetching videos data
@@ -30,6 +31,12 @@ const PlayVideo = ({ videoId }) => {
         await fetch(channelData_url)
             .then(res => res.json())
             .then(data => setChannelData(data.items[0]))
+
+        //Fetching comment data
+        const comment_url = `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=${videoId}&key=${API_KEY}`
+        await fetch(comment_url)
+            .then(res => res.json())
+            .then(data => setCommentData(data.items));
     }
 
     useEffect(() => {
@@ -61,7 +68,7 @@ const PlayVideo = ({ videoId }) => {
                 <img src={channelData ? channelData.snippet.thumbnails.default.url : ""} alt="profile" />
                 <div>
                     <p>{apiData ? apiData.snippet.channelTitle : ''}</p>
-                    <span>1M Takipçi</span>
+                    <span>{channelData ? value_converter(channelData.statistics.subscriberCount) : '1M'} Takipçi</span>
                 </div>
                 <button>Takip et</button>
             </div>
@@ -69,76 +76,24 @@ const PlayVideo = ({ videoId }) => {
                 <p>{apiData ? apiData.snippet.description.slice(0, 250) : 'description here'}</p>
                 <hr />
                 <h4>{apiData ? value_converter(apiData.statistics.commentCount) : 97} Yorum</h4>
-                <div className="comment">
-                    <img src={user_profile} alt="user-icon" />
-                    <div>
-                        <h3>Jack Nicholson <span>1 day ago</span></h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam voluptatem blanditiis ducimus tenetur et officiis
-                            exercitationem, consequuntur repudiandae tempore laboriosam nulla
-                            nesciunt officia veritatis, temporibus minus qui quas distinctio consectetur!</p>
-                        <div className="comment-action">
-                            <img src={like} alt="like" />
-                            <span>12</span>
-                            <img src={dislike} alt="2" />
+                {commentData.map((item, i) => {
+                    return (
+                        <div key={i} className="comment">
+                            <img src={item.snippet.topLevelComment.snippet.authorProfileImageUrl} alt="user-icon" />
+                            <div>
+                                <h3>{item.snippet.topLevelComment.snippet.authorDisplayName} <span>1 day ago</span></h3>
+                                <p>{item.snippet.topLevelComment.snippet.textDisplay}</p>
+                                <div className="comment-action">
+                                    <img src={like} alt="like" />
+                                    <span>{value_converter(item.snippet.topLevelComment.snippet.likeCount)}</span>
+                                    <img src={dislike} alt="2" />
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div className="comment">
-                    <img src={user_profile} alt="user-icon" />
-                    <div>
-                        <h3>Jack Nicholson <span>1 day ago</span></h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam voluptatem blanditiis ducimus tenetur et officiis
-                            exercitationem, consequuntur repudiandae tempore laboriosam nulla
-                            nesciunt officia veritatis, temporibus minus qui quas distinctio consectetur!</p>
-                        <div className="comment-action">
-                            <img src={like} alt="like" />
-                            <span>12</span>
-                            <img src={dislike} alt="2" />
-                        </div>
-                    </div>
-                </div>
-                <div className="comment">
-                    <img src={user_profile} alt="user-icon" />
-                    <div>
-                        <h3>Jack Nicholson <span>1 day ago</span></h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam voluptatem blanditiis ducimus tenetur et officiis
-                            exercitationem, consequuntur repudiandae tempore laboriosam nulla
-                            nesciunt officia veritatis, temporibus minus qui quas distinctio consectetur!</p>
-                        <div className="comment-action">
-                            <img src={like} alt="like" />
-                            <span>12</span>
-                            <img src={dislike} alt="2" />
-                        </div>
-                    </div>
-                </div>
-                <div className="comment">
-                    <img src={user_profile} alt="user-icon" />
-                    <div>
-                        <h3>Jack Nicholson <span>1 day ago</span></h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam voluptatem blanditiis ducimus tenetur et officiis
-                            exercitationem, consequuntur repudiandae tempore laboriosam nulla
-                            nesciunt officia veritatis, temporibus minus qui quas distinctio consectetur!</p>
-                        <div className="comment-action">
-                            <img src={like} alt="like" />
-                            <span>12</span>
-                            <img src={dislike} alt="2" />
-                        </div>
-                    </div>
-                </div>
-                <div className="comment">
-                    <img src={user_profile} alt="user-icon" />
-                    <div>
-                        <h3>Jack Nicholson <span>1 day ago</span></h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam voluptatem blanditiis ducimus tenetur et officiis
-                            exercitationem, consequuntur repudiandae tempore laboriosam nulla
-                            nesciunt officia veritatis, temporibus minus qui quas distinctio consectetur!</p>
-                        <div className="comment-action">
-                            <img src={like} alt="like" />
-                            <span>12</span>
-                            <img src={dislike} alt="2" />
-                        </div>
-                    </div>
-                </div>
+                    )
+                })}
+
+
             </div>
         </div>
     )

@@ -20,7 +20,7 @@ const Navbar = ({ setSidebar }) => {
 
             <div className="nav-middle flex-div">
                 <div className="search-box flex-div">
-                    <input type="text" placeholder='Search' />
+                    <input type="text" placeholder='Aramak istediğiniz içerik nedir ?' />
                     <img src={search_icon} alt="search_icon" />
                 </div>
 

@@ -11,6 +11,7 @@
     margin-top: 10px;
     font-weight: 600;
     font-size: 22px;
+    color: white;
 }
 
 .play-video-info {
@@ -20,7 +21,7 @@
     flex-wrap: wrap;
     margin-top: 10px;
     font-size: 14px;
-    color: #5a5a5a;
+    color: #e8e8e8;
 }
 
 .play-video-info img {
@@ -32,6 +33,7 @@
     display: inline-flex;
     align-items: center;
     margin-left: 15px;
+    color: rgb(255, 255, 255);
 }
 
 .play-video hr {
@@ -59,14 +61,14 @@
 }
 
 .publisher div p {
-    color: #000;
+    color: #ffffff;
     font-weight: 600;
     font-size: 16px;
 }
 
 .publisher div span {
     font-size: 13px;
-    color: #5a5a5a;
+    color: #c0c0c0;
 }
 
 .publisher button {
@@ -77,6 +79,13 @@
     outline: 0;
     border-radius: 10px;
     cursor: pointer;
+    font-weight: bold;
+    transition: all .2s ease-in-out;
+}
+
+.publisher button:hover {
+    background-color: rgb(125, 0, 0);
+
 }
 
 .vid-description {
@@ -87,12 +96,12 @@
 .vid-description p {
     font-size: 14px;
     margin-bottom: 5px;
-    color: #5a5a5a;
+    color: #ffffff;
 }
 
 .vid-description h4 {
     font-size: 14px;
-    color: #5a5a5a;
+    color: #ffffff;
     margin-top: 15px;
 }
 
@@ -115,7 +124,7 @@
 
 .comment h3 span {
     font-size: 12px;
-    color: #5a5a5a;
+    color: #a1a1a1;
     font-weight: 500;
     margin-left: 8px;
 }
@@ -135,7 +144,7 @@
 
 .comment-action span {
     margin-right: 20px;
-    color: #5a5a5a;
+    color: #b1b1b1;
 }
 
 @media (max-width:900px) {

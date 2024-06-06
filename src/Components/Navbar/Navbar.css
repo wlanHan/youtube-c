@@ -1,7 +1,7 @@
 nav {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     justify-content: space-between;
-    background: #fff;
+    background: #0F0F0F;
     position: sticky;
     padding: 10px 2%;
     z-index: 10;
@@ -14,7 +14,7 @@ nav {
 }
 
 .nav-left .logo {
-    width: 130px;
+    width: 140px;
 }
 
 .nav-middle .search-box {
@@ -27,8 +27,13 @@ nav {
 .nav-middle .search-box input {
     width: 400px;
     border: none;
-    outline: navajowhite;
+    outline: rgb(255, 255, 255);
     background: transparent;
+    padding: 3px 3px;
+}
+
+.search-box input::placeholder {
+    color: white;
 }
 
 .nav-middle .search-box img {
@@ -63,8 +68,7 @@ nav {
         width: 90px;
     }
 
-    .nav-middle .search-box input{
+    .nav-middle .search-box input {
         width: 100px;
     }
 }
-

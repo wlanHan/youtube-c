@@ -11,7 +11,6 @@ import thumbnail8 from '../../assets/thumbnail8.png'
 import { Link } from 'react-router-dom'
 import { API_KEY, value_converter } from '../../data'
 import moment from 'moment'
-import 'moment/locale/tr';
 
 const Feed = ({ category }) => {
 

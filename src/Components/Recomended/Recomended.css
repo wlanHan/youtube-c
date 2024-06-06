@@ -15,11 +15,17 @@
 
 .vid-info {
     flex-basis: 49%;
+    color: rgb(166, 166, 166);
+
+    p {
+        font-size: 14px;
+    }
 }
 
 .vid-info h4 {
     font-size: 13px;
     margin-bottom: 5px;
+    color: white;
 }
 
 @media (max-width:900px) {

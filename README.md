@@ -1,9 +1,9 @@
-<h2>VidTube</h2>
+<span>VidTube</span> / <span>VideoHub</span>
 
-![Thumbnail](https://github.com/wlanHan/youtube-c/assets/159789584/65efd761-2a97-460e-aa83-6f29d971a867)
+![banner](https://github.com/wlanHan/youtube-c/assets/159789584/82b52b48-8c9d-4d3c-ac7c-2953aded4315)
 
 
-# YouTube Clone with React
+# YouTube-C with React
 
 Bu proje, YouTube'un front-end klonunu oluşturmak için React kullanılarak geliştirilmiştir.
 Ayrıca, responsive bir tasarımı desteklemek için tasarlanmıştır. 
